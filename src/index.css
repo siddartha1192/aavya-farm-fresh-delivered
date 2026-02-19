@@ -1,96 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Aavya Brand Colors */
+    --earth-green: 154 41% 30%;       /* #2D6A4F */
+    --earth-green-light: 154 35% 42%; /* lighter green */
+    --earth-green-dark: 154 45% 15%;  /* darker green */
+    --sunrise-orange: 27 88% 66%;     /* #F4A261 */
+    --sunrise-orange-dark: 27 80% 55%;
+    --cream-white: 52 95% 93%;        /* #FEFAE0 */
+    --deep-brown: 18 41% 32%;         /* #774936 */
+    --deep-brown-light: 18 35% 45%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Semantic tokens mapped to brand */
+    --background: 52 95% 97%;
+    --foreground: 18 41% 18%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: 52 90% 98%;
+    --card-foreground: 18 41% 18%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: 52 90% 98%;
+    --popover-foreground: 18 41% 18%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: 154 41% 30%;
+    --primary-foreground: 52 95% 97%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: 27 88% 66%;
+    --secondary-foreground: 18 41% 18%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 52 50% 90%;
+    --muted-foreground: 18 20% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 27 88% 66%;
+    --accent-foreground: 18 41% 18%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --border: 52 40% 85%;
+    --input: 52 40% 88%;
+    --ring: 154 41% 30%;
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.75rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(154 41% 20% / 0.85) 0%, hsl(18 41% 25% / 0.6) 100%);
+    --gradient-green: linear-gradient(135deg, hsl(154 41% 30%), hsl(154 35% 42%));
+    --gradient-orange: linear-gradient(135deg, hsl(27 88% 66%), hsl(27 80% 55%));
+    --gradient-cream: linear-gradient(180deg, hsl(52 95% 97%) 0%, hsl(52 80% 93%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(154 41% 25%) 0%, hsl(18 41% 32%) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(154 41% 30% / 0.1);
+    --shadow-md: 0 8px 24px hsl(154 41% 30% / 0.15);
+    --shadow-lg: 0 20px 48px hsl(154 41% 30% / 0.2);
+    --shadow-orange: 0 8px 24px hsl(27 88% 66% / 0.3);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 52 80% 95%;
+    --sidebar-foreground: 18 41% 18%;
+    --sidebar-primary: 154 41% 30%;
+    --sidebar-primary-foreground: 52 95% 97%;
+    --sidebar-accent: 27 88% 66%;
+    --sidebar-accent-foreground: 18 41% 18%;
+    --sidebar-border: 52 40% 85%;
+    --sidebar-ring: 154 41% 30%;
   }
 }
 
@@ -98,8 +75,271 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
   }
+  h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* ===== BUTTONS ===== */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-all duration-300;
+    background: var(--gradient-green);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-md);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 border-2;
+    border-color: hsl(var(--cream-white));
+    color: hsl(var(--cream-white));
+    background: transparent;
+  }
+  .btn-secondary:hover {
+    background: hsl(var(--cream-white));
+    color: hsl(var(--earth-green));
+    transform: translateY(-2px);
+  }
+
+  .btn-orange {
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-all duration-300;
+    background: var(--gradient-orange);
+    color: hsl(var(--foreground));
+    box-shadow: var(--shadow-orange);
+  }
+  .btn-orange:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px hsl(27 88% 66% / 0.4);
+  }
+
+  /* ===== SECTION STYLES ===== */
+  .section-cream {
+    background: var(--gradient-cream);
+  }
+  .section-green {
+    background: var(--gradient-earth);
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* ===== CARD STYLES ===== */
+  .card-organic {
+    @apply rounded-2xl p-6 transition-all duration-300;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-sm);
+    border: 1px solid hsl(var(--border));
+  }
+  .card-organic:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .plan-card {
+    @apply rounded-3xl p-8 transition-all duration-300 relative;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-md);
+    border: 2px solid hsl(var(--border));
+  }
+  .plan-card.featured {
+    border-color: hsl(var(--earth-green));
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(154 41% 30% / 0.04));
+  }
+  .plan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* ===== BADGE STYLES ===== */
+  .badge-trust {
+    @apply flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+    background: hsl(var(--cream-white) / 0.15);
+    border: 1px solid hsl(var(--cream-white) / 0.3);
+    color: hsl(var(--cream-white));
+    backdrop-filter: blur(8px);
+  }
+
+  .badge-green {
+    @apply text-xs font-semibold px-3 py-1 rounded-full;
+    background: hsl(var(--earth-green) / 0.12);
+    color: hsl(var(--earth-green));
+  }
+
+  .badge-orange {
+    @apply text-xs font-semibold px-3 py-1 rounded-full;
+    background: hsl(var(--sunrise-orange) / 0.15);
+    color: hsl(var(--sunrise-orange-dark));
+  }
+
+  /* ===== STAT CARD ===== */
+  .stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: hsl(var(--earth-green));
+  }
+
+  /* ===== FLOATING ANIMATIONS ===== */
+  .float-leaf {
+    animation: floatLeaf 6s ease-in-out infinite;
+  }
+  .float-leaf-delay {
+    animation: floatLeaf 8s ease-in-out 2s infinite;
+  }
+  .float-leaf-delay2 {
+    animation: floatLeaf 7s ease-in-out 4s infinite;
+  }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== TOGGLE ===== */
+  .toggle-pill {
+    @apply relative flex items-center p-1 rounded-full;
+    background: hsl(var(--muted));
+  }
+  .toggle-pill button {
+    @apply relative z-10 px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300;
+    color: hsl(var(--muted-foreground));
+  }
+  .toggle-pill button.active {
+    background: hsl(var(--earth-green));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ===== IMPACT COUNTER ===== */
+  .impact-counter {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--gradient-orange);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== ARTICLE CARD ===== */
+  .article-card {
+    @apply rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-sm);
+  }
+  .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* ===== STEP INDICATOR ===== */
+  .step-dot {
+    @apply w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300;
+    background: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+  }
+  .step-dot.active {
+    background: hsl(var(--earth-green));
+    color: hsl(var(--primary-foreground));
+  }
+  .step-dot.done {
+    background: hsl(var(--sunrise-orange));
+    color: hsl(var(--foreground));
+  }
+
+  /* ===== TESTIMONIAL ===== */
+  .testimonial-card {
+    @apply rounded-2xl p-6;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-md);
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* ===== NAV ===== */
+  .nav-link {
+    @apply text-sm font-medium transition-colors duration-200;
+    color: hsl(var(--foreground) / 0.7);
+  }
+  .nav-link:hover {
+    color: hsl(var(--earth-green));
+  }
+
+  /* ===== CHECKBOX CUSTOM ===== */
+  .veggie-check {
+    @apply flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all duration-200 border;
+    border-color: hsl(var(--border));
+  }
+  .veggie-check:hover {
+    border-color: hsl(var(--earth-green) / 0.5);
+    background: hsl(var(--earth-green) / 0.04);
+  }
+  .veggie-check.selected {
+    border-color: hsl(var(--earth-green));
+    background: hsl(var(--earth-green) / 0.08);
+  }
+
+  /* ===== SECTION HEADINGS ===== */
+  .section-tag {
+    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase mb-4;
+    color: hsl(var(--sunrise-orange-dark));
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+    color: hsl(var(--foreground));
+  }
+  .section-subtitle {
+    @apply text-base md:text-lg leading-relaxed mt-4;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* ===== DIVIDER LEAF ===== */
+  .leaf-divider {
+    @apply flex items-center gap-4 my-6;
+  }
+  .leaf-divider::before,
+  .leaf-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: hsl(var(--border));
+  }
+}
+
+@keyframes floatLeaf {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(5deg); }
+  66% { transform: translateY(-8px) rotate(-3deg); }
+}
+
+@keyframes counterUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(154 41% 30% / 0.4); }
+  50% { box-shadow: 0 0 0 12px hsl(154 41% 30% / 0); }
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2s infinite;
 }
