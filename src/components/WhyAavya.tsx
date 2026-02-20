@@ -162,23 +162,87 @@ const WhyAavya = () => {
           })}
         </div>
 
-        {/* Bottom Quote */}
+        {/* Founder Note */}
         <div
-          className="mt-14 rounded-2xl px-10 py-8 text-center reveal"
+          className="mt-14 rounded-2xl reveal overflow-hidden"
           style={{ background: "var(--gradient-earth)" }}
         >
-          <p
-            className="text-lg md:text-xl font-medium italic mb-3"
-            style={{ color: "hsl(var(--cream-white) / 0.9)" }}
-          >
-            "Aavya means blessing. Every vegetable we send is our blessing to your family — grown with love, delivered with purpose."
-          </p>
-          <p
-            className="text-xs font-semibold tracking-widest uppercase"
-            style={{ color: "hsl(var(--sunrise-orange))" }}
-          >
-            — Founder, Aavya Farms, Hyderabad
-          </p>
+          <div className="px-10 md:px-14 py-10 md:py-12">
+
+              {/* Decorative open-quote */}
+              <div
+                className="mb-4 leading-none select-none"
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: "5rem",
+                  lineHeight: 0.8,
+                  color: "hsl(var(--sunrise-orange) / 0.45)",
+                  fontWeight: 700,
+                }}
+              >
+                "
+              </div>
+
+              {/* Quote body — Playfair italic, left-aligned */}
+              <p
+                className="mb-8"
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                  fontSize: "clamp(1.05rem, 2.2vw, 1.35rem)",
+                  lineHeight: 1.8,
+                  color: "hsl(52 85% 90%)",
+                }}
+              >
+                My father was paid ₹4 for tomatoes that sold for ₹60 in the
+                market — that injustice is why Aavya exists. Every box we
+                deliver is a promise kept to the farmer who grew it and the
+                family who deserves it fresh.
+              </p>
+
+              {/* Divider */}
+              <div
+                className="w-12 h-px mb-6"
+                style={{ background: "hsl(var(--sunrise-orange) / 0.5)" }}
+              />
+
+              {/* Attribution */}
+              <div className="flex items-center gap-4">
+                {/* Initials avatar */}
+                <div
+                  className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold"
+                  style={{
+                    background: "hsl(var(--sunrise-orange) / 0.18)",
+                    border: "1px solid hsl(var(--sunrise-orange) / 0.35)",
+                    color: "hsl(var(--sunrise-orange))",
+                    fontFamily: "'Poppins', sans-serif",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  VR
+                </div>
+
+                <div>
+                  <p
+                    className="text-sm font-semibold"
+                    style={{ color: "hsl(52 90% 92%)" }}
+                  >
+                    Vikram Reddy
+                  </p>
+                  <p
+                    className="text-xs tracking-widest uppercase"
+                    style={{
+                      color: "hsl(var(--sunrise-orange) / 0.8)",
+                      letterSpacing: "0.1em",
+                    }}
+                  >
+                    Founder & CEO · Aavya Farms, Hyderabad
+                  </p>
+                </div>
+              </div>
+
+            </div>
         </div>
 
       </div>

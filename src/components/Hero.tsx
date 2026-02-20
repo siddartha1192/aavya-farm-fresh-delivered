@@ -1,95 +1,109 @@
 import heroFarm from "@/assets/hero-farm.jpg";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Leaf, PackageX, Clock, Users } from "lucide-react";
 
 interface HeroProps {
   onSubscribeClick: () => void;
 }
 
 const trustBadges = [
-  { emoji: "🌱", text: "Chemical-Free" },
-  { emoji: "♻️", text: "Zero Plastic" },
-  { emoji: "🚴", text: "6AM Delivery" },
-  { emoji: "🧑‍🌾", text: "Direct Farmer" },
+  { icon: Leaf,     text: "Chemical-Free" },
+  { icon: PackageX, text: "Zero Plastic"  },
+  { icon: Clock,    text: "6 AM Delivery" },
+  { icon: Users,    text: "Direct Farmer" },
 ];
 
 const Hero = ({ onSubscribeClick }: HeroProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+
+      {/* ── Background image — lighter overlay so the farm breathes ── */}
       <div className="absolute inset-0">
         <img
           src={heroFarm}
           alt="Aavya Farmland"
           className="w-full h-full object-cover"
+          style={{ filter: "brightness(1.08) saturate(1.1)" }}
         />
+        {/* Lighter, centred vignette — reveals the sky & greenery */}
         <div
           className="absolute inset-0"
-          style={{ background: "var(--gradient-hero)" }}
+          style={{
+            background:
+              "linear-gradient(to bottom, hsl(154 41% 12% / 0.38) 0%, hsl(154 35% 10% / 0.60) 55%, hsl(18 41% 12% / 0.78) 100%)",
+          }}
+        />
+        {/* Subtle warm spotlight in the centre to lift brightness */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 60% at 50% 40%, hsl(45 90% 90% / 0.10) 0%, transparent 70%)",
+          }}
         />
       </div>
 
-      {/* Floating Leaf Emojis */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <span className="absolute text-4xl float-leaf opacity-40" style={{ top: "15%", left: "8%" }}>🥬</span>
-        <span className="absolute text-3xl float-leaf-delay opacity-30" style={{ top: "25%", right: "12%" }}>🍅</span>
-        <span className="absolute text-3xl float-leaf-delay2 opacity-35" style={{ bottom: "30%", left: "15%" }}>🥕</span>
-        <span className="absolute text-2xl float-leaf opacity-25" style={{ top: "60%", right: "8%" }}>🫑</span>
-        <span className="absolute text-4xl float-leaf-delay opacity-20" style={{ bottom: "20%", right: "20%" }}>🌿</span>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center pt-20">
-        {/* Tag */}
-        <div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase mb-6 animate-fade-up"
-          style={{
-            background: "hsl(var(--sunrise-orange) / 0.2)",
-            border: "1px solid hsl(var(--sunrise-orange) / 0.4)",
-            color: "hsl(var(--sunrise-orange))",
-          }}
-        >
-          🌾 Seedha Khet Se — Hyderabad's Freshest Delivery
-        </div>
+      {/* ── Content ── */}
+      <div className="relative z-10 container mx-auto px-6 text-center pt-24 pb-32 max-w-4xl">
 
         {/* Headline */}
         <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-up"
-          style={{
-            color: "hsl(var(--cream-white))",
-            animationDelay: "0.1s",
-          }}
+          className="leading-tight mb-5 animate-fade-up"
+          style={{ animationDelay: "0.1s" }}
         >
-          1000 Acres of Freshness,
-          <br />
-          <span style={{ color: "hsl(var(--sunrise-orange))" }}>
+          {/* Line 1 — light weight Poppins, airy & editorial */}
+          <span
+            className="block"
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 300,
+              fontSize: "clamp(2rem, 5.5vw, 4.2rem)",
+              letterSpacing: "0.06em",
+              color: "hsl(52 90% 93%)",
+              textShadow: "0 2px 24px hsl(154 41% 10% / 0.45)",
+              textTransform: "uppercase",
+            }}
+          >
+            1000 Acres of Freshness
+          </span>
+
+          {/* Line 2 — Playfair Display italic, warm orange, premium serif accent */}
+          <span
+            className="block"
+            style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontStyle: "italic",
+              fontWeight: 700,
+              fontSize: "clamp(2.4rem, 6.5vw, 5rem)",
+              letterSpacing: "-0.01em",
+              color: "hsl(var(--sunrise-orange))",
+              textShadow: "0 4px 32px hsl(27 80% 45% / 0.40)",
+              lineHeight: 1.15,
+            }}
+          >
             Delivered Before Sunrise
           </span>
         </h1>
 
-        {/* Sub-headline */}
+        {/* Single, punchy sub-headline */}
         <p
-          className="text-lg md:text-xl mb-4 animate-fade-up"
+          className="font-light mb-10 animate-fade-up"
           style={{
-            color: "hsl(var(--cream-white) / 0.85)",
+            fontFamily: "'Poppins', sans-serif",
+            fontSize: "clamp(0.85rem, 1.8vw, 1.05rem)",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "hsl(52 70% 82%)",
+            textShadow: "0 1px 12px hsl(154 41% 10% / 0.4)",
             animationDelay: "0.2s",
           }}
         >
-          No middlemen. No plastic. No compromise.
-        </p>
-        <p
-          className="text-base mb-10 animate-fade-up"
-          style={{
-            color: "hsl(var(--cream-white) / 0.65)",
-            animationDelay: "0.3s",
-          }}
-        >
-          From Our Farm to Your Family — Fresh in 24 Hours
+          No middlemen · No plastic · No compromise
         </p>
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-14 animate-fade-up"
-          style={{ animationDelay: "0.4s" }}
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up"
+          style={{ animationDelay: "0.3s" }}
         >
           <button onClick={onSubscribeClick} className="btn-primary group">
             Start Your Subscription
@@ -101,23 +115,37 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
           </button>
         </div>
 
-        {/* Trust Badges */}
+        {/* Trust badges — Lucide icons, no emojis */}
         <div
           className="flex flex-wrap justify-center gap-3 animate-fade-up"
-          style={{ animationDelay: "0.5s" }}
+          style={{ animationDelay: "0.4s" }}
         >
-          {trustBadges.map((badge) => (
-            <div key={badge.text} className="badge-trust">
-              <span>{badge.emoji}</span>
-              <span className="text-xs font-medium">{badge.text}</span>
+          {trustBadges.map(({ icon: Icon, text }) => (
+            <div
+              key={text}
+              className="flex items-center gap-2 px-4 py-2 rounded-full"
+              style={{
+                background: "hsl(var(--cream-white) / 0.10)",
+                border: "1px solid hsl(var(--cream-white) / 0.22)",
+                color: "hsl(var(--cream-white))",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <Icon size={13} strokeWidth={1.8} style={{ color: "hsl(var(--sunrise-orange))" }} />
+              <span className="text-xs font-semibold tracking-wide">{text}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Bottom wave */}
+      {/* ── Bottom wave into the next section ── */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          viewBox="0 0 1440 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ display: "block" }}
+        >
           <path
             d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"
             fill="hsl(var(--background))"
