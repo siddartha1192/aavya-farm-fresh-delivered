@@ -16,28 +16,20 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-      {/* ── Background image — lighter overlay so the farm breathes ── */}
+      {/* ── Background image — full brightness, no dark overlay ── */}
       <div className="absolute inset-0">
         <img
           src={heroFarm}
           alt="Aavya Farmland"
           className="w-full h-full object-cover"
-          style={{ filter: "brightness(1.08) saturate(1.1)" }}
+          style={{ filter: "brightness(1.25) saturate(1.15)" }}
         />
-        {/* Lighter, centred vignette — reveals the sky & greenery */}
+        {/* Subtle warm spotlight — adds atmospheric depth without darkening */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, hsl(154 41% 12% / 0.38) 0%, hsl(154 35% 10% / 0.60) 55%, hsl(18 41% 12% / 0.78) 100%)",
-          }}
-        />
-        {/* Subtle warm spotlight in the centre to lift brightness */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 60% at 50% 40%, hsl(45 90% 90% / 0.10) 0%, transparent 70%)",
+              "radial-gradient(ellipse 80% 60% at 50% 38%, hsl(45 90% 95% / 0.12) 0%, transparent 70%)",
           }}
         />
       </div>
@@ -59,7 +51,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
               fontSize: "clamp(2rem, 5.5vw, 4.2rem)",
               letterSpacing: "0.06em",
               color: "hsl(52 90% 93%)",
-              textShadow: "0 2px 24px hsl(154 41% 10% / 0.45)",
+              textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 3px 10px rgba(0,0,0,0.80), 0 6px 30px rgba(0,0,0,0.55)",
               textTransform: "uppercase",
             }}
           >
@@ -76,7 +68,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
               fontSize: "clamp(2.4rem, 6.5vw, 5rem)",
               letterSpacing: "-0.01em",
               color: "hsl(var(--sunrise-orange))",
-              textShadow: "0 4px 32px hsl(27 80% 45% / 0.40)",
+              textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 3px 12px rgba(0,0,0,0.80), 0 6px 32px hsl(27 60% 15% / 0.65)",
               lineHeight: 1.15,
             }}
           >
@@ -93,7 +85,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
             letterSpacing: "0.22em",
             textTransform: "uppercase",
             color: "hsl(52 70% 82%)",
-            textShadow: "0 1px 12px hsl(154 41% 10% / 0.4)",
+            textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 2px 12px rgba(0,0,0,0.75)",
             animationDelay: "0.2s",
           }}
         >
@@ -125,8 +117,8 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
               key={text}
               className="flex items-center gap-2 px-4 py-2 rounded-full"
               style={{
-                background: "hsl(var(--cream-white) / 0.10)",
-                border: "1px solid hsl(var(--cream-white) / 0.22)",
+                background: "hsl(var(--cream-white) / 0.18)",
+                border: "1px solid hsl(var(--cream-white) / 0.38)",
                 color: "hsl(var(--cream-white))",
                 backdropFilter: "blur(8px)",
               }}
