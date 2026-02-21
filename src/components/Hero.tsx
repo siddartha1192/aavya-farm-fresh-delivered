@@ -42,15 +42,15 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
           className="leading-tight mb-5 animate-fade-up"
           style={{ animationDelay: "0.1s" }}
         >
-          {/* Line 1 — light weight Poppins, airy & editorial */}
+          {/* Line 1 — Poppins semi-bold: solid, structured, uppercase anchor */}
           <span
             className="block"
             style={{
               fontFamily: "'Poppins', sans-serif",
-              fontWeight: 300,
-              fontSize: "clamp(2rem, 5.5vw, 4.2rem)",
-              letterSpacing: "0.06em",
-              color: "hsl(52 90% 93%)",
+              fontWeight: 600,
+              fontSize: "clamp(1.8rem, 5vw, 3.8rem)",
+              letterSpacing: "0.10em",
+              color: "#ffffff",
               textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 3px 10px rgba(0,0,0,0.80), 0 6px 30px rgba(0,0,0,0.55)",
               textTransform: "uppercase",
             }}
@@ -58,7 +58,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
             1000 Acres of Freshness
           </span>
 
-          {/* Line 2 — Playfair Display italic, warm orange, premium serif accent */}
+          {/* Line 2 — Playfair Display italic bold: elegant serif contrast, pure white */}
           <span
             className="block"
             style={{
@@ -67,8 +67,8 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
               fontWeight: 700,
               fontSize: "clamp(2.4rem, 6.5vw, 5rem)",
               letterSpacing: "-0.01em",
-              color: "hsl(var(--sunrise-orange))",
-              textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 3px 12px rgba(0,0,0,0.80), 0 6px 32px hsl(27 60% 15% / 0.65)",
+              color: "#ffffff",
+              textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 3px 12px rgba(0,0,0,0.80), 0 8px 36px rgba(0,0,0,0.50)",
               lineHeight: 1.15,
             }}
           >
@@ -78,13 +78,14 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
 
         {/* Single, punchy sub-headline */}
         <p
-          className="font-light mb-10 animate-fade-up"
+          className="mb-10 animate-fade-up"
           style={{
             fontFamily: "'Poppins', sans-serif",
+            fontWeight: 400,
             fontSize: "clamp(0.85rem, 1.8vw, 1.05rem)",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "hsl(52 70% 82%)",
+            color: "rgba(255,255,255,0.85)",
             textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 2px 12px rgba(0,0,0,0.75)",
             animationDelay: "0.2s",
           }}
@@ -117,9 +118,9 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
               key={text}
               className="flex items-center gap-2 px-4 py-2 rounded-full"
               style={{
-                background: "hsl(var(--cream-white) / 0.18)",
-                border: "1px solid hsl(var(--cream-white) / 0.38)",
-                color: "hsl(var(--cream-white))",
+                background: "rgba(255,255,255,0.18)",
+                border: "1px solid rgba(255,255,255,0.38)",
+                color: "#ffffff",
                 backdropFilter: "blur(8px)",
               }}
             >
