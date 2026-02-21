@@ -6,111 +6,130 @@ interface HeroProps {
 }
 
 const trustBadges = [
-  { icon: Leaf,     text: "Chemical-Free" },
-  { icon: PackageX, text: "Zero Plastic"  },
-  { icon: Clock,    text: "6 AM Delivery" },
-  { icon: Users,    text: "Direct Farmer" },
+  { icon: Leaf, text: "Chemical-Free" },
+  { icon: PackageX, text: "Zero Plastic" },
+  { icon: Clock, text: "6 AM Delivery" },
+  { icon: Users, text: "Direct Farmer" },
 ];
 
 const Hero = ({ onSubscribeClick }: HeroProps) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-
-      {/* ── Background image — full brightness, no dark overlay ── */}
+    <section className="relative min-h-[100svh] flex items-end overflow-hidden">
+      {/* ── Background image ── */}
       <div className="absolute inset-0">
         <img
           src={heroFarm}
-          alt="Aavya Farmland"
+          alt="Aavya Farmland — 1000 acres of lush green fields in Hyderabad"
           className="w-full h-full object-cover"
-          style={{ filter: "brightness(1.25) saturate(1.15)" }}
         />
-        {/* Subtle warm spotlight — adds atmospheric depth without darkening */}
+        {/* Dark gradient overlay for text legibility */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 50% 38%, hsl(45 90% 95% / 0.12) 0%, transparent 70%)",
+              "linear-gradient(to top, hsl(154 45% 8% / 0.92) 0%, hsl(154 45% 8% / 0.65) 40%, hsl(154 45% 8% / 0.25) 70%, transparent 100%)",
           }}
         />
       </div>
 
-      {/* ── Content ── */}
-      <div className="relative z-10 container mx-auto px-6 text-center pt-24 pb-32 max-w-4xl">
+      {/* ── Content — pinned to bottom ── */}
+      <div className="relative z-10 container mx-auto px-6 pb-24 pt-40 max-w-5xl">
+        {/* Eyebrow tag */}
+        <div
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 animate-fade-up"
+          style={{
+            background: "hsl(27 88% 66% / 0.15)",
+            border: "1px solid hsl(27 88% 66% / 0.4)",
+          }}
+        >
+          <Leaf size={14} className="text-secondary" />
+          <span
+            className="text-xs font-semibold tracking-widest uppercase"
+            style={{ color: "hsl(27 88% 66%)" }}
+          >
+            Farm to Family — Fresh in 24 Hours
+          </span>
+        </div>
 
         {/* Headline */}
-        <h1
-          className="leading-tight mb-5 animate-fade-up"
-          style={{ animationDelay: "0.1s" }}
-        >
-          {/* Line 1 — Poppins semi-bold: solid, structured, uppercase anchor */}
+        <h1 className="mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           <span
-            className="block"
+            className="block text-white"
             style={{
               fontFamily: "'Poppins', sans-serif",
-              fontWeight: 600,
-              fontSize: "clamp(1.8rem, 5vw, 3.8rem)",
-              letterSpacing: "0.10em",
-              color: "#ffffff",
-              textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 3px 10px rgba(0,0,0,0.80), 0 6px 30px rgba(0,0,0,0.55)",
-              textTransform: "uppercase",
+              fontWeight: 700,
+              fontSize: "clamp(2.2rem, 5.5vw, 4.2rem)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.02em",
             }}
           >
-            1000 Acres of Freshness
+            1000 Acres of Freshness,
           </span>
-
-          {/* Line 2 — Playfair Display italic bold: elegant serif contrast, pure white */}
           <span
-            className="block"
+            className="block mt-1"
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontStyle: "italic",
               fontWeight: 700,
-              fontSize: "clamp(2.4rem, 6.5vw, 5rem)",
+              fontSize: "clamp(2.6rem, 6.5vw, 5rem)",
+              lineHeight: 1.1,
               letterSpacing: "-0.01em",
-              color: "#ffffff",
-              textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 3px 12px rgba(0,0,0,0.80), 0 8px 36px rgba(0,0,0,0.50)",
-              lineHeight: 1.15,
+              color: "hsl(27 88% 66%)",
             }}
           >
             Delivered Before Sunrise
           </span>
         </h1>
 
-        {/* Single, punchy sub-headline */}
+        {/* Sub-headline */}
         <p
-          className="mb-10 animate-fade-up"
+          className="text-white/70 mb-8 max-w-xl animate-fade-up"
           style={{
             fontFamily: "'Poppins', sans-serif",
-            fontWeight: 400,
-            fontSize: "clamp(0.85rem, 1.8vw, 1.05rem)",
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.85)",
-            textShadow: "0 1px 3px rgba(0,0,0,0.95), 0 2px 12px rgba(0,0,0,0.75)",
+            fontSize: "clamp(0.95rem, 1.6vw, 1.15rem)",
+            lineHeight: 1.6,
             animationDelay: "0.2s",
           }}
         >
-          No middlemen · No plastic · No compromise
+          No middlemen. No plastic. No compromise.
+          <br className="hidden sm:block" />
+          <span className="text-white/50">
+            Seedha khet se, aapke ghar tak — Hyderabad's freshest vegetables.
+          </span>
         </p>
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up"
+          className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-up"
           style={{ animationDelay: "0.3s" }}
         >
           <button onClick={onSubscribeClick} className="btn-primary group">
             Start Your Subscription
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="btn-secondary group">
+          <button
+            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-base transition-all duration-300"
+            style={{
+              background: "hsl(0 0% 100% / 0.1)",
+              border: "1px solid hsl(0 0% 100% / 0.25)",
+              color: "white",
+              backdropFilter: "blur(8px)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "hsl(0 0% 100% / 0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "hsl(0 0% 100% / 0.1)";
+            }}
+          >
             <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
             See Our Farm
           </button>
         </div>
 
-        {/* Trust badges — Lucide icons, no emojis */}
+        {/* Trust badges */}
         <div
-          className="flex flex-wrap justify-center gap-3 animate-fade-up"
+          className="flex flex-wrap gap-3 animate-fade-up"
           style={{ animationDelay: "0.4s" }}
         >
           {trustBadges.map(({ icon: Icon, text }) => (
@@ -118,29 +137,30 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
               key={text}
               className="flex items-center gap-2 px-4 py-2 rounded-full"
               style={{
-                background: "rgba(255,255,255,0.18)",
-                border: "1px solid rgba(255,255,255,0.38)",
-                color: "#ffffff",
-                backdropFilter: "blur(8px)",
+                background: "hsl(0 0% 100% / 0.08)",
+                border: "1px solid hsl(0 0% 100% / 0.15)",
+                backdropFilter: "blur(6px)",
               }}
             >
-              <Icon size={13} strokeWidth={1.8} style={{ color: "hsl(var(--sunrise-orange))" }} />
-              <span className="text-xs font-semibold tracking-wide">{text}</span>
+              <Icon size={14} strokeWidth={2} style={{ color: "hsl(27 88% 66%)" }} />
+              <span className="text-xs font-medium tracking-wide text-white/80">
+                {text}
+              </span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ── Bottom wave into the next section ── */}
+      {/* ── Bottom wave ── */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg
-          viewBox="0 0 1440 80"
+          viewBox="0 0 1440 60"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           style={{ display: "block" }}
         >
           <path
-            d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"
+            d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"
             fill="hsl(var(--background))"
           />
         </svg>
