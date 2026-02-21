@@ -1,5 +1,5 @@
 import heroFarm from "@/assets/hero-farm.jpg";
-import { ArrowRight, Play, Leaf, PackageX, Clock, Users } from "lucide-react";
+import { ArrowRight, Leaf, PackageX, Clock, Users } from "lucide-react";
 
 interface HeroProps {
   onSubscribeClick: () => void;
@@ -131,28 +131,6 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
           >
             Start Your Subscription
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button
-            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-base transition-all duration-300"
-            style={{
-              background: "rgba(255, 255, 255, 0.15)",
-              border: "1.5px solid rgba(255, 255, 255, 0.4)",
-              color: "#FFFFFF",
-              backdropFilter: "blur(10px)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.25)";
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
-              e.currentTarget.style.transform = "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)";
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.4)";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-          >
-            <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            See Our Farm
           </button>
         </div>
 

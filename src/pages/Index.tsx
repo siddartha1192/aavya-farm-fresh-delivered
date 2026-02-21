@@ -6,7 +6,6 @@ import SubscriptionPlans from "@/components/SubscriptionPlans";
 import CheckoutFlow from "@/components/CheckoutFlow";
 import ImpactTracker from "@/components/ImpactTracker";
 import ContentSection from "@/components/ContentSection";
-import FarmVisit from "@/components/FarmVisit";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
@@ -38,7 +37,6 @@ const Index = () => {
       <SubscriptionPlans onSelectPlan={handleSelectPlan} />
       <ImpactTracker />
       <ContentSection />
-      <FarmVisit />
       <Testimonials />
       <Footer />
 

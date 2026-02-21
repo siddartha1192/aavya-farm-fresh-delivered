@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Check, Star, Crown, ArrowRight } from "lucide-react";
+import { Check, Crown, ArrowRight, Leaf, Users, Gem, Star } from "lucide-react";
 
 type BillingCycle = "monthly" | "daily" | "annual";
 
@@ -7,7 +7,9 @@ const plans = [
   {
     id: "essential",
     name: "Daily Essentials",
-    emoji: "🥬",
+    Icon: Leaf,
+    iconBg: "hsl(154 41% 30% / 0.12)",
+    iconColor: "hsl(154 41% 30%)",
     description: "Perfect for individuals & small families",
     prices: { daily: 93, monthly: 2800, annual: 28000 },
     annualSaving: 5600,
@@ -20,13 +22,14 @@ const plans = [
     ],
     badge: null,
     badgeStyle: {},
-    color: "var(--gradient-green)",
     featured: false,
   },
   {
     id: "family",
     name: "Family Pack",
-    emoji: "👨‍👩‍👧‍👦",
+    Icon: Users,
+    iconBg: "hsl(154 41% 30% / 0.12)",
+    iconColor: "hsl(154 41% 30%)",
     description: "Ideal for families of 4 or more",
     prices: { daily: 140, monthly: 4200, annual: 42000 },
     annualSaving: 9600,
@@ -38,15 +41,16 @@ const plans = [
       "Priority customer support",
       "Free recipe cards weekly",
     ],
-    badge: "⭐ Most Popular",
+    badge: "Most Popular",
     badgeStyle: { background: "var(--gradient-orange)" },
-    color: "var(--gradient-green)",
     featured: true,
   },
   {
     id: "premium",
     name: "Premium Organic",
-    emoji: "👑",
+    Icon: Crown,
+    iconBg: "hsl(18 41% 32% / 0.12)",
+    iconColor: "hsl(18 41% 45%)",
     description: "Certified organic, full wellness experience",
     prices: { daily: 200, monthly: 6000, annual: 60000 },
     annualSaving: 12000,
@@ -59,11 +63,10 @@ const plans = [
       "Exclusive seasonal boxes",
       "Ayurvedic herb add-ons",
     ],
-    badge: "👑 Premium",
+    badge: "Premium",
     badgeStyle: {
       background: "linear-gradient(135deg, #774936, #C97D4B)",
     },
-    color: "linear-gradient(135deg, #774936, #C97D4B)",
     featured: false,
   },
 ];
@@ -154,15 +157,21 @@ const SubscriptionPlans = ({ onSelectPlan }: SubscriptionPlansProps) => {
               {/* Badge */}
               {plan.badge && (
                 <div
-                  className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full text-xs font-bold text-card shadow-md"
+                  className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full text-xs font-bold text-white shadow-md flex items-center gap-1.5"
                   style={plan.badgeStyle}
                 >
+                  <Star className="w-3 h-3 fill-current" />
                   {plan.badge}
                 </div>
               )}
 
               {/* Icon */}
-              <div className="text-4xl mb-3">{plan.emoji}</div>
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                style={{ background: plan.iconBg }}
+              >
+                <plan.Icon size={26} strokeWidth={1.75} style={{ color: plan.iconColor }} />
+              </div>
 
               {/* Name */}
               <h3 className="text-xl font-bold mb-1" style={{ color: "hsl(var(--foreground))" }}>
