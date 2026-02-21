@@ -50,7 +50,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
               textShadow: "0 2px 8px rgba(0,0,0,0.6)",
             }}
           >
-            1000 Acres of Freshness,
+            1000 Acres of Freshness
           </span>
           <span
             className="block mt-2"
@@ -104,7 +104,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
           No middlemen. No plastic. No compromise.
           <br className="hidden sm:block" />
           <span style={{ color: "rgba(255,255,255,0.65)" }}>
-            Seedha khet se, aapke ghar tak — Hyderabad's freshest vegetables.
+            Hyderabad's freshest vegetables.
           </span>
         </p>
 
