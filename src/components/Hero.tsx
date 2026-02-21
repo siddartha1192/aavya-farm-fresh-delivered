@@ -40,8 +40,9 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
         <div
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-7 animate-fade-up"
           style={{
-            background: "rgba(244, 162, 97, 0.2)",
-            border: "1px solid rgba(244, 162, 97, 0.5)",
+            background: "rgba(0, 0, 0, 0.45)",
+            border: "1px solid rgba(244, 162, 97, 0.6)",
+            backdropFilter: "blur(8px)",
           }}
         >
           <Leaf size={14} style={{ color: "#F4A261" }} />
