@@ -36,26 +36,8 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
 
       {/* ── Content ── */}
       <div className="relative z-10 container mx-auto px-6 pb-28 pt-40 max-w-5xl">
-        {/* Eyebrow tag */}
-        <div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-7 animate-fade-up"
-          style={{
-            background: "rgba(0, 0, 0, 0.45)",
-            border: "1px solid rgba(244, 162, 97, 0.6)",
-            backdropFilter: "blur(8px)",
-          }}
-        >
-          <Leaf size={14} style={{ color: "#F4A261" }} />
-          <span
-            className="text-xs font-semibold tracking-widest uppercase"
-            style={{ color: "#F4A261" }}
-          >
-            Farm to Family — Fresh in 24 Hours
-          </span>
-        </div>
-
         {/* Headline */}
-        <h1 className="mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+        <h1 className="mb-5 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           <span
             className="block"
             style={{
@@ -86,6 +68,25 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
             Delivered Before Sunrise
           </span>
         </h1>
+
+        {/* Tagline — below headline */}
+        <div
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-7 animate-fade-up"
+          style={{
+            background: "rgba(244, 162, 97, 0.15)",
+            border: "1px solid rgba(244, 162, 97, 0.4)",
+            backdropFilter: "blur(8px)",
+            animationDelay: "0.15s",
+          }}
+        >
+          <Leaf size={14} style={{ color: "#F4A261" }} />
+          <span
+            className="text-xs font-semibold tracking-widest uppercase"
+            style={{ color: "#F4A261" }}
+          >
+            Farm to Family — Fresh in 24 Hours
+          </span>
+        </div>
 
         {/* Sub-headline */}
         <p
