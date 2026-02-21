@@ -35,7 +35,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 container mx-auto px-6 pb-28 pt-40 max-w-5xl">
+      <div className="relative z-10 container mx-auto px-6 pb-28 pt-40 max-w-5xl text-center">
         {/* Headline */}
         <h1 className="mb-5 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           <span
@@ -70,27 +70,28 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
         </h1>
 
         {/* Tagline — below headline */}
-        <div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-7 animate-fade-up"
-          style={{
-            background: "rgba(244, 162, 97, 0.15)",
-            border: "1px solid rgba(244, 162, 97, 0.4)",
-            backdropFilter: "blur(8px)",
-            animationDelay: "0.15s",
-          }}
-        >
-          <Leaf size={14} style={{ color: "#F4A261" }} />
-          <span
-            className="text-xs font-semibold tracking-widest uppercase"
-            style={{ color: "#F4A261" }}
+        <div className="flex justify-center mb-7 animate-fade-up" style={{ animationDelay: "0.15s" }}>
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full"
+            style={{
+              background: "rgba(244, 162, 97, 0.15)",
+              border: "1px solid rgba(244, 162, 97, 0.4)",
+              backdropFilter: "blur(8px)",
+            }}
           >
-            Farm to Family — Fresh in 24 Hours
-          </span>
+            <Leaf size={14} style={{ color: "#F4A261" }} />
+            <span
+              className="text-xs font-semibold tracking-widest uppercase"
+              style={{ color: "#F4A261" }}
+            >
+              Farm to Family — Fresh in 24 Hours
+            </span>
+          </div>
         </div>
 
         {/* Sub-headline */}
         <p
-          className="mb-9 max-w-xl animate-fade-up"
+          className="mb-9 max-w-xl mx-auto animate-fade-up"
           style={{
             fontFamily: "'Poppins', sans-serif",
             fontSize: "clamp(0.95rem, 1.6vw, 1.15rem)",
@@ -109,7 +110,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-4 mb-14 animate-fade-up"
+          className="flex flex-col sm:flex-row gap-4 mb-14 justify-center animate-fade-up"
           style={{ animationDelay: "0.3s" }}
         >
           <button
@@ -136,7 +137,7 @@ const Hero = ({ onSubscribeClick }: HeroProps) => {
 
         {/* Trust badges */}
         <div
-          className="flex flex-wrap gap-3 animate-fade-up"
+          className="flex flex-wrap gap-3 justify-center animate-fade-up"
           style={{ animationDelay: "0.4s" }}
         >
           {trustBadges.map(({ icon: Icon, text }) => (
